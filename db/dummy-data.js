@@ -28,7 +28,7 @@ const data = [
   },
   {
     "id": 1006,
-    "title": "Dummy data 1006",
+    "title": "Dummy data 1006: Why Holden Caulfield Thinks Full-Stack Web Dev is Phony",
     "content": "Dummy data: Est ullamcorper eget nulla facilisi etiam dignissim diam quis enim. Neque convallis a cras semper auctor neque. Sed vulputate odio ut enim blandit volutpat maecenas volutpat. Aenean euismod elementum nisi quis eleifend."
   },
   {
