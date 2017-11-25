@@ -5,7 +5,7 @@
  * Primary Job: communicates with API methods. 
  *  
  * Rule of Thumb:
- * - Never manipulation DOM directly
+ * - Never manipulate DOM directly
  * - No jquery on this page, use `fetch()` not `$.AJAX()` or `$.getJSON()`
  * - Do not call render methods from this layer
  * 

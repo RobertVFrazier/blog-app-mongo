@@ -21,8 +21,13 @@ button {
   background-color: lightblue;
 }
 
+h2{
+  font-family: Arial;
+  color: coral;
+}
+
 #nav li {
-  display: inline
+  display: inline;
 }
 
 #search,
@@ -30,4 +35,22 @@ button {
 #create,
 #edit {
   /* display: none; */
+}
+
+.view{
+  color: black;
+}
+
+fieldset{
+  border: 3px solid purple;
+}
+
+legend{
+  color: darkblue;
+  font-weight: 700;  
+}
+
+label{
+  color: darkblue;
+  font-weight: 700;
 }

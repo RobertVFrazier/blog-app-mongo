@@ -7,21 +7,35 @@ var data = require('../db/dummy-data');
 
 const { DATABASE } = require('../config');
 const knex = require('knex')(DATABASE);
+// data = require(process.env.DATABASE_URL
+// || 'postgres://zwyejxef:723uJ0cdV2Nm3ZqxfjB8wlJLKuyvGcy3@baasu.db.elephantsql.com:5432/zwyejxef');
 
 /* ========== GET/READ ALL ITEMS ========== */
 router.get('/stories', (req, res) => {
   knex('stories')
     .select()
     .then(results=>res.json(results));
-  // if (req.query.search) {
-  //   const filtered = data.filter((obj) => obj.title.includes(req.query.search));
-  //   res.json(filtered);
-  // } else {
-  //   res.json(data);
-  // }
 });
 
+// router.get('/stories', (req, res) => {
+//   if (req.query.search) {
+//     const filtered = data.filter((obj) => obj.title.includes(req.query.search));
+//     res.json(filtered);
+//   } else {
+//     res.json(data);
+//   }
+// });
+
 /* ========== GET/READ SINGLE ITEMS ========== */
+
+// router.get('/stories/:id', (req, res) => {
+//   knex('stories')
+//     .select()
+//     .where({id: 1002})
+//     .first()
+//     .then(results=>res.json(results));
+// });
+
 router.get('/stories/:id', (req, res) => {
   const id = Number(req.params.id);
   const item = data.find((obj) => obj.id === id);
