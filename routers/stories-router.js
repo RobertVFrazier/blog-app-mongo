@@ -13,7 +13,7 @@ const knex = require('knex')(DATABASE);
 router.get('/stories', (req, res) => {
   knex('stories')
     .select()
-    .then(results=>res.json(results));
+    .then(results=>res.status(200).json(results));
 });
 
 // This works the same as the above:
@@ -38,9 +38,9 @@ router.get('/stories', (req, res) => {
 /* ========== GET/READ SINGLE ITEMS ========== */
 // This gets a single blog post when you click one of the titles on the main screen.
 router.get('/stories/:id', (req, res, next) => {
-  const idInput = Number(req.params.id);
+  const idInput = parseInt(req.params.id);
   knex('stories')
-    .select('title', 'content')
+    .select('id', 'title', 'content')
     // .select('stories.id', 'title', 'content')
     .where('id', idInput)
     .then(([result]) => {
@@ -85,6 +85,15 @@ router.get('/stories/:id', (req, res, next) => {
 // });
 
 /* ========== PUT/UPDATE A SINGLE ITEM ========== */
+router.put('/stories/:id', (req, res)=>{
+  const {titleInput, contentInput}=req.body;
+  const idInput = parseInt(req.params.id);
+  knex('stories')
+    .where('id', idInput)
+    .update('title', titleInput)
+    .update('content', contentInput)
+    .then(results=>res.status(202).json(results));
+});
 
 // Original code using dummy-data:
 

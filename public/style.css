@@ -4,7 +4,7 @@ form, section {
 label {
   display: block;
   display:inline-block;
-  width: 80px;
+  width: 60px;
 }
 
 button, input[type=submit] {
@@ -53,4 +53,8 @@ legend{
 label{
   color: darkblue;
   font-weight: 700;
+}
+
+.titleInput{
+  width: 500px;
 }
