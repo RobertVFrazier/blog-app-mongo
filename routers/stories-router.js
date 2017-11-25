@@ -11,17 +11,17 @@ const knex = require('knex')(DATABASE);
 /* ========== GET/READ ALL ITEMS ========== */
 // This gets the list of titles for the main screen.
 router.get('/stories', (req, res) => {
-  knex.select()
-    .from('stories')
+  knex('stories')
+    .select()
     .then(results=>res.json(results));
 });
 
 // This works the same as the above:
 
 // router.get('/stories', (req, res) => {
-//   knex('stories')
-//     .select()
-//     .then(results=>res.json(results));
+//  knex.select()
+//    .from('stories')
+//    .then(results=>res.json(results));
 // });
 
 // Original code using dummy-data:
@@ -42,7 +42,7 @@ router.get('/stories/:id', (req, res, next) => {
   knex('stories')
     .select('title', 'content')
     // .select('stories.id', 'title', 'content')
-    .where('stories.id', idInput)
+    .where('id', idInput)
     .then(([result]) => {
       res.status(200).json(result);
     });
@@ -101,9 +101,16 @@ router.get('/stories/:id', (req, res, next) => {
 
 /* ========== DELETE/REMOVE A SINGLE ITEM ========== */
 router.delete('/stories/:id', (req, res) => {
-  knex
+  const idInput = Number(req.params.id);
+  knex('stories')
+    .where('id', idInput)
+    .del()
+    .then(results=>{
+      if(results){
+        res.sendStatus(204);
+      }
+    });
 });
-
 
 // Original code using dummy-data:
 
