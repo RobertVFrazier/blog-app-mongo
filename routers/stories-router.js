@@ -43,7 +43,7 @@ router.get('/stories/:id', (req, res, next) => {
     .select('id', 'title', 'content')
     // .select('stories.id', 'title', 'content')
     .where('id', idInput)
-    .then(([result]) => {
+    .then(([result])=>{
       res.status(200).json(result);
     });
 });
@@ -86,8 +86,9 @@ router.get('/stories/:id', (req, res, next) => {
 
 /* ========== PUT/UPDATE A SINGLE ITEM ========== */
 router.put('/stories/:id', (req, res)=>{
-  const {titleInput, contentInput}=req.body;
   const idInput = parseInt(req.params.id);
+  const titleInput=req.body.title;
+  const contentInput=req.body.content;
   knex('stories')
     .where('id', idInput)
     .update('title', titleInput)
