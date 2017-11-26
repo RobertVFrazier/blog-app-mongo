@@ -46,11 +46,11 @@ You have been hired to complete an API for a blog app. The previous developer wo
   - [x] Update GET `/api/v1/stories/:id` endpoint to use `knex.select()...`
   - [ ] Update POST `/api/v1/stories/` endpoint to use `knex.insert()...`
   - [ ] Update PUT `/api/v1/stories/:id` endpoint to use `knex.update()...`
-  - [ ] Update DELETE `/api/v1/stories/:id` endpoint to use `knex.del()...`
+  - [x] Update DELETE `/api/v1/stories/:id` endpoint to use `knex.del()...`
 - Deploy to Heroku (see [Deploying to Heroku](https://courses.thinkful.com/node-001v5/project/1.3.5))
   - [x] Install Heroku CLI app, if necessary
   - [ ] Create app on Heroku
   - [ ] Update git remote to point to Heroku
   - [ ] Push app to Heroku - Note: app probably won't work yet 'cause there's no production database
   - [x] Create a production database on Elephant SQL. Use `query.sql` from earlier to easily recreate database
-  - [ ] Configure Heroku config vars to use `DATABASE_URL` and the Elephant SQL connection string  
+  - [x] Configure Heroku config vars to use `DATABASE_URL` and the Elephant SQL connection string  

@@ -19,7 +19,7 @@ const renderResults = function (store) {
                 <a href="${item.url}" class="detail">${item.title}</a>
               </li>`;
   });
-  $('#result').empty().append('<ul>').find('ul').append(listItems);
+  $('#result').empty().append('<ul>').find('ul').append(listItems.sort());
 };
 
 const renderEdit = function (store) {
