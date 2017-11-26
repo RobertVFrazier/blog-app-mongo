@@ -58,13 +58,12 @@ router.get('/stories/:id', (req, res, next) => {
 
 /* ========== POST/CREATE ITEM ========== */
 router.post('/stories', (req, res)=>{
-  const idInput=1011;
   const contentInput=req.body.content;
   const titleInput=req.body.title;
   console.log(titleInput);
   console.log(contentInput);
   knex('stories')
-    .insert({id: idInput, title: titleInput, content: contentInput})
+    .insert({title: titleInput, content: contentInput})
     .then(results=>res.status(201).json(results));
 });
 

@@ -33,7 +33,7 @@ const renderDetail = function (store) {
   const el = $('#detail');
   const item = store.item;
   el.find('.title').text(item.title);
-  el.find('.content').text(item.content);
+  el.find('.content').html(item.content.replace(RegExp('\n','g'), '<br>'));
 };
 
 const handleSearch = function (event) {
