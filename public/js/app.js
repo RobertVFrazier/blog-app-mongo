@@ -33,7 +33,12 @@ const renderDetail = function (store) {
   const el = $('#detail');
   const item = store.item;
   el.find('.title').text(item.title);
-  el.find('.content').html(item.content.replace(RegExp('\n','g'), '<br>'));
+  console.log(item.content);
+  if(item.content===undefined){
+    el.find('.content').html(item.content);
+  } else{
+    el.find('.content').html(item.content.replace(RegExp('\n','g'), '<br>'));
+  }
 };
 
 const handleSearch = function (event) {
@@ -51,7 +56,6 @@ const handleSearch = function (event) {
     .then(response => {
       store.list = response;
       renderResults(store);
-
       store.view = 'search';
       renderPage(store);
     }).catch(err => {
@@ -72,6 +76,7 @@ const handleCreate = function (event) {
     .then(response => {
       store.item = response;
       store.list = null; //invalidate cached list results
+      handleViewList;
       renderDetail(store);
       store.view = 'detail';
       renderPage(store);
@@ -112,10 +117,8 @@ const handleDetails = function (event) {
     .then(response => {
       store.item = response;
       renderDetail(store);
-
       store.view = 'detail';
       renderPage(store);
-
     }).catch(err => {
       store.error = err;
     });
