@@ -13,9 +13,7 @@ const app = express();
 
 app.use(morgan('common'));
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(bodyParser.json());
-
 app.use('/api/v1', storiesRouter);
 
 // Catch-all endpoint for requests to non-existent endpoint
@@ -33,6 +31,12 @@ app.use(function (err, req, res, next) {
     message: err.message,
     error: (app.get('env') === 'development') ? err : {}
   });
+});
+
+app.get('/stories', (req, res) => {
+  knex.select('id', 'title', 'content')
+    .from('stories')
+    .then(results => res.json(results));
 });
 
 const server = app
